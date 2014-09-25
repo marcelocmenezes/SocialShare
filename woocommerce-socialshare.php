@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: WooCommerce SocialShare
- * Plugin URI: https://github.com/marcelocmenezes
- * Description: Compartilhamento Sociais para WooCommerce
+ * Plugin URI: https://github.com/marcelocmenezes/WooCommerce-SocialShare
+ * Description: Plugin de Compartilhamento Sociais para WooCommerce
  * Author: Marcelo Menezes
  * Author URI: https://github.com/marcelocmenezes
  * Version: 1.0
@@ -36,9 +36,10 @@ add_action( 'wp_enqueue_scripts', 'registra_scripts' );
 /*****************************************************/
 function woocommerce_product_socialshare(){
 	echo '
-		<div class="fb-share-button" data-href="http://www.vingadoresfa.com.br/" data-layout="button"></div>
+		<br>	
+		<div class="fb-share-button" data-href="'.get_permalink().'" data-layout="button"></div>
 		<a class="twitter-share-button" data-dnt="true" data-count="none" data-via="marcelomenezes" href="https://twitter.com/share">Share on Twitter</a>
-		<div class="g-plus" data-action="share" data-annotation="none" data-href="http://www.vingadoresfa.com.br/"></div>
-		<div id="fb-root"></div>'
+		<div class="g-plus" data-action="share" data-annotation="none" data-href="'.get_permalink().'"></div>
+		<div id="fb-root"></div>';
 }
 add_action('woocommerce_share','woocommerce_product_socialshare');
