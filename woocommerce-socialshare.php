@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WooCommerce SocialShare
- * Plugin URI: https://github.com/marcelocmenezes/WooCommerce-SocialShare
+ * Plugin URI: https://github.com/marcelocmenezes/SocialShare
  * Description: Plugin de Compartilhamento Sociais para WooCommerce
  * Author: Marcelo Menezes
  * Author URI: https://github.com/marcelocmenezes
