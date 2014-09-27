@@ -1,2 +1,31 @@
-.fb_iframe_widget {display: inline-flex !important; margin-right: 1px;}
+   		.socialshare {clear: both; margin:0; paddin:0;}
+   		.socialshare span {display: inline-block; cursor: pointer; pasition:fixed; height:32px;	width:32px;}
+   		.socialshare span.facebook {background: url(../images/facebook_32.png) no-repeat;}
+   		.socialshare span.facebook:hover {opacity:0.85; -moz-opacity: 0.85; filter: alpha(opacity=85);}
+   		
+   		.socialshare span.googleplus {background: url(../images/googleplus_32.png) no-repeat;}
+   		.socialshare span.googleplus:hover {opacity:0.85; -moz-opacity: 0.85; filter: alpha(opacity=85);}
+   		
+   		.socialshare span.twitter {background: url(../images/twitter_32.png) no-repeat;}
+   		.socialshare span.twitter:hover {opacity:0.85; -moz-opacity: 0.85; filter: alpha(opacity=85);}
+   		
+   		.socialshare span.linkedin {background: url(../images/linkedin_32.png) no-repeat;}
+   		.socialshare span.linkedin:hover {opacity:0.85; -moz-opacity: 0.85; filter: alpha(opacity=85);}
+
+/**
+
+.socialshare {display: inline-flex !important;}
+.fb_iframe_widget {padding-left:2px; padding-right:2px; padding-top:1px; height:20px !important;  margin-right: 1px; border: 1px solid #ccc; border-radius:2px;}
 .fb_iframe_widget span {vertical-align: baseline !important;}
+
+#twitter-widget-0 a#b.bnt {background: none !importante;}
+
+
+.product_details {height: 60px !important;}
+
+.button, .kad-btn {text-transform: uppercase !important;}
+.shipping {display: inline;}
+.shipping .btn-calc {height: 40px; font-size: 16px !important; float: left;}
+.shipping input { height: 40px !important; width: 120px !important; float: left;}
+
+*/

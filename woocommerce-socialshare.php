@@ -14,32 +14,88 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+if ( ! class_exists( 'SocialShare' ) ) :
 
-/*****************************************************/
-/* FunÁ„o que registra o CSS e o JS do plugin.       */
-/*****************************************************/
+class SocialShare {
+		
+	
+	 
+	
+	/**
+	 * Plugin version.
+	 *
+	 * @var string
+	 */
+	const VERSION = '1.0.0';
+	
+	
+	/**
+	 * Instance of this class.
+	 *
+	 * @var object
+	 */
+	protected static $instance = null;
+	
+	/**
+	 * Inicializa√ß√£o do plugin.
+	 */
+	public function __construct() {
+		add_action( 'wp_enqueue_scripts',  array ( $this, 'enqueue_scripts'), 0 );
+		
+		add_action( 'woocommerce_share', array( $this, 'product_share' ), 99 );
+	}
 
-function registra_scripts() {
-	wp_enqueue_style( 'css-socialshare', plugins_url( 'assets/css/socialshare.css', __FILE__ ) );
+	/**
+	* Return an instance of this class.
+	*
+	* @return object A single instance of this class.
+	*/
+	public static function get_instance() {
+		// If the single instance hasn't been set, set it now.
+		if ( null == self::$instance ) {
+			self::$instance = new self;
+		}
+	
+		return self::$instance;
+	}
+	
+	/**
+	 * Fun√ß√£o que registra o CSS e o JS do plugin.
+	 */
+	public function enqueue_scripts() {
+		
+		wp_enqueue_style( 'style-socialshare', plugins_url( 'assets/css/socialshare.css', __FILE__ ) );
+		
 
-	wp_enqueue_script( 'twitter-socialshare', plugins_url( 'assets/js/twitter.js', __FILE__ ) );
-	wp_enqueue_script( 'facebook-socialshare', plugins_url( 'assets/js/facebook.js', __FILE__ ) );
-	wp_enqueue_script( 'gplus-socialshare', 'https://apis.google.com/js/platform.js' );
+		wp_enqueue_script( 'facebook', plugins_url( 'assets/js/scripts.js', __FILE__ ) );
+
+		
+	}
+			
+
+	
+	/**
+	 * Fun√ß√£o que exibe os bot√µes de compartilhamento na pagina do produto. 
+	  */
+	public function product_share(){
+		
+		
+		echo '
+			<div class="socialshare">
+				<span class="facebook" onclick="return facebook_click()"></span>
+				<span class="googleplus" onclick="return googleplus_click()"></span>
+				<span class="twitter" onclick="return twitter_click()"></span>
+				<span class="linkedin" onclick="return linkedin_click()"></span>
+			</div>';
+		
+		
+
+	}
+	
 }
 
-add_action( 'wp_enqueue_scripts', 'registra_scripts' );
+add_action( 'plugins_loaded', array( 'SocialShare', 'get_instance' ), 0 );
 
 
-/*****************************************************/
-/* FunÁ„o que exibe os botıes de compartilhamento na */
-/* pagina do produto.                                */
-/*****************************************************/
-function woocommerce_product_socialshare(){
-	echo '
-		<br>	
-		<div class="fb-share-button" data-href="'.get_permalink().'" data-layout="button"></div>
-		<a class="twitter-share-button" data-dnt="true" data-count="none" data-via="marcelomenezes" href="https://twitter.com/share">Share on Twitter</a>
-		<div class="g-plus" data-action="share" data-annotation="none" data-href="'.get_permalink().'"></div>
-		<div id="fb-root"></div>';
-}
-add_action('woocommerce_share','woocommerce_product_socialshare');
+
+endif;
