@@ -21,7 +21,7 @@ class SocialShare {
 	
 	 
 	
-	/**
+	/*
 	 * Plugin version.
 	 *
 	 * @var string
@@ -29,14 +29,14 @@ class SocialShare {
 	const VERSION = '1.0.0';
 	
 	
-	/**
+	/*
 	 * Instance of this class.
 	 *
 	 * @var object
 	 */
 	protected static $instance = null;
 	
-	/**
+	/*
 	 * Inicialização do plugin.
 	 */
 	public function __construct() {
@@ -45,11 +45,11 @@ class SocialShare {
 		add_action( 'woocommerce_share', array( $this, 'product_share' ), 99 );
 	}
 
-	/**
-	* Return an instance of this class.
-	*
-	* @return object A single instance of this class.
-	*/
+	/*
+	 * Return an instance of this class.
+	 *
+	 * @return object A single instance of this class.
+	 */
 	public static function get_instance() {
 		// If the single instance hasn't been set, set it now.
 		if ( null == self::$instance ) {
@@ -59,7 +59,7 @@ class SocialShare {
 		return self::$instance;
 	}
 	
-	/**
+	/*
 	 * Função que registra o CSS e o JS do plugin.
 	 */
 	public function enqueue_scripts() {
@@ -74,9 +74,9 @@ class SocialShare {
 			
 
 	
-	/**
+	/*
 	 * Função que exibe os botões de compartilhamento na pagina do produto. 
-	  */
+	 */
 	public function product_share(){
 		
 		
